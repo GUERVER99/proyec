@@ -7,7 +7,7 @@ const baseUrl = `${import.meta.env.VITE_API_URL}/users`;
 export const useAuthStore = defineStore({
     id: 'auth',
     state: () => ({
-        // initialize state from local storage to enable user to stay logged in
+        //inicialice el estado desde el almacenamiento local para permitir que el usuario permanezca conectado
         user: JSON.parse(localStorage.getItem('user')),
         returnUrl: null
     }),
@@ -15,13 +15,13 @@ export const useAuthStore = defineStore({
         async login(username, password) {
             const user = await fetchWrapper.post(`${baseUrl}/authenticate`, { username, password });
 
-            // update pinia state
+            // actualizar el estado de pinia
             this.user = user;
 
-            // store user details and jwt in local storage to keep user logged in between page refreshes
+            // almacene los detalles del usuario y jwt en el almacenamiento local para mantener al usuario conectado entre actualizaciones de página
             localStorage.setItem('user', JSON.stringify(user));
 
-            // redirect to previous url or default to home page
+            // redirigir a la URL anterior o por defecto a la página de inicio
             router.push(this.returnUrl || '/');
         },
         logout() {

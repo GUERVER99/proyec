@@ -1,5 +1,7 @@
 a {
     cursor: pointer;
+    position: right;
+    display: flex;
 }
 
 .app-container {

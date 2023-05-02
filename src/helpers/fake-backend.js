@@ -1,11 +1,11 @@
 export { fakeBackend };
 
 function fakeBackend() {
-    let users = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
+    let users = [{ id: 1, username: 'HolaSoyGerlin', password: '1999.', firstName: 'Gerlin', lastName: 'Victor' }];
     let realFetch = window.fetch;
     window.fetch = function (url, opts) {
         return new Promise((resolve, reject) => {
-            // wrap in timeout to simulate server api call
+            // ajustar el tiempo de espera para simular la llamada a la API del servidor
             setTimeout(handleRoute, 500);
 
             function handleRoute() {
@@ -15,14 +15,14 @@ function fakeBackend() {
                     case url.endsWith('/users') && opts.method === 'GET':
                         return getUsers();
                     default:
-                        // pass through any requests not handled above
+                        // pasar a través de cualquier solicitud no manejada anteriormente
                         return realFetch(url, opts)
                             .then(response => resolve(response))
                             .catch(error => reject(error));
                 }
             }
 
-            // route functions
+            // funciones de ruta
 
             function authenticate() {
                 const { username, password } = body();
@@ -44,7 +44,7 @@ function fakeBackend() {
                 return ok(users);
             }
 
-            // helper functions
+            // funciones auxiliares
 
             function ok(body) {
                 resolve({ ok: true, text: () => Promise.resolve(JSON.stringify(body)) })

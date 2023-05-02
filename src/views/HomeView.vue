@@ -14,13 +14,16 @@ usersStore.getAll();
 
 <template>
     <div>
-        <h1>Hi {{authUser?.firstName}}!</h1>
-        <p>You're logged in with Vue 3 + Pinia & JWT!!</p>
-        <h3>Users from secure api end point:</h3>
+        <h1>BIENVENID@ {{authUser?.firstName}}!</h1>
+        <p>Has Iniciado sesion en la APP TU SALUD!!</p>
+        <h3>Esta es una version de prueba, creada para presentar en la universidad y salvar el semestre :-(</h3>
+        <br>
+        <br>
+        <h4>Listado de usuarios prueba:</h4>
         <ul v-if="users.length">
             <li v-for="user in users" :key="user.id">{{user.firstName}} {{user.lastName}}</li>
         </ul>
         <div v-if="users.loading" class="spinner-border spinner-border-sm"></div>
-        <div v-if="users.error" class="text-danger">Error loading users: {{users.error}}</div>
+        <div v-if="users.error" class="text-danger">Usuario o contraseña incorrectos: {{users.error}}</div>
     </div>
 </template>

@@ -4,7 +4,7 @@ import { createPinia } from 'pinia';
 import App from './App.vue';
 import { router } from './helpers';
 
-// setup fake backend
+// configurar backend falso
 import { fakeBackend } from './helpers';
 fakeBackend();
 
