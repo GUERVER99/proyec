@@ -44,5 +44,13 @@ function onSubmit(values, { setErrors }) {
             </div>
             <div v-if="errors.apiError" class="alert alert-danger mt-3 mb-0">{{errors.apiError}}</div>
         </Form>
+        <footer class="bg-light text-center text-lg-start">
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023
+          </div>
+          <!-- Copyright -->
+        </footer>
     </div>
+    
 </template>

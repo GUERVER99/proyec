@@ -1,7 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import { useAuthStore } from '@/stores';
-import { HomeView, LoginView } from '@/views';
+import { LoginView } from '@/views';
+import { HomeView} from '@/views';
+import usuarios from '../views/usuarios.vue'
+import listado_eps from '../views/listado_eps.vue'
+import contactenos from '../views/contactenos.vue'
 
 
 export const router = createRouter({
@@ -10,6 +14,9 @@ export const router = createRouter({
     routes: [
         { path: '/', component: HomeView },
         { path: '/login', component: LoginView },
+        { path: '/usuarios', name: 'usuarios', component: usuarios },
+        { path: '/listado_eps', name: 'eps', component: listado_eps},
+        { path: '/contactenos', name: 'contacto', component: contactenos}
     ]
 });
 
