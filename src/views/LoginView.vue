@@ -20,10 +20,6 @@ function onSubmit(values, { setErrors }) {
 
 <template>
     <div>
-        <div class="alert alert-info">
-            Username: HolaSoyGerlin<br />
-            Password: 1999.
-        </div>
         <div><h2>BIENVENIDO!</h2></div>
         <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">
             <div class="form-group">
